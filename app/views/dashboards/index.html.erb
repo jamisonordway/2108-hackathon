@@ -7,6 +7,8 @@
   <%= link_to "#{meeting.topic}", meeting_path(meeting.id)  %>
 <% end %>
 
+<h3>Take attendance by module</h3>
+
 <% @mods.each do |mod| %>
-  <p><%= link_to "Take attendance for #{mod.full_module_name}", new_mod_lesson_date_path(mod) %></p>
+  <p><%= link_to "Take attendance for #{mod.full_module_name}", new_mod_lesson_date_path(mod, @meetings.last.id) %></p>
 <% end %>

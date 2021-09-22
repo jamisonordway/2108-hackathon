@@ -23,7 +23,8 @@ class LessonDatesController < ApplicationController
         params[:instructor_email],
         lesson_date.id
       )
-      zoom.get_present
+      zoom.get_present(params[:meeting_id])
+      redirect_to lesson_date_path(lesson_date)
     else
       flash[:error] = lesson_date.errors.full_messages
       redirect_to :new

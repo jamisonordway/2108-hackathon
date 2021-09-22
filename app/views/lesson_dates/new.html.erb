@@ -10,5 +10,6 @@
     <%= f.label :instructor_email %>
     <%= f.text_field :instructor_email %>
   </p>
+  <%= f.hidden_field :meeting_id, value: @meeting_id %>
   <%= f.submit "Start lesson!" %>
 <% end %>
