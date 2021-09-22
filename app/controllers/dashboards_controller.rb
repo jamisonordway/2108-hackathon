@@ -9,5 +9,6 @@ class DashboardsController < ApplicationController
     @meetings = json[:meetings].map do |meeting|
       Meeting.new(meeting)
     end
+    @mods = Mod.all
   end
 end

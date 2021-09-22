@@ -7,4 +7,8 @@ class Mod < ApplicationRecord
   def lesson_count
     lesson_dates.count
   end
+
+  def full_module_name
+    "#{name} - #{program}"
+  end
 end
