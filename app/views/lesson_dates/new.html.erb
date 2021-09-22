@@ -1,0 +1,14 @@
+<h1>Take attendance</h1>
+
+<%= form_with model: [@mod, @lesson_date], local: true do |f| %>
+  <p>Is this a morning or afternoon lesson?</p>
+  <%= f.radio_button :time_of_day, 0 %>
+  <%= f.label :time_of_day, "AM" %>
+  <%= f.radio_button :time_of_day, 1 %>
+  <%= f.label :time_of_day, "PM" %>
+  <p>
+    <%= f.label :instructor_email %>
+    <%= f.text_field :instructor_email %>
+  </p>
+  <%= f.submit "Start lesson!" %>
+<% end %>
