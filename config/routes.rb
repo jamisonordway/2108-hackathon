@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get '/', to: 'dashboards#index'
+  get '/', to: 'login#show'
 
+  get '/login', to: 'login#create'
+  resources :meetings, only: [:show]
+  resources :dashboards, only: [:index]
   resources :lesson_dates, only: [:index, :show]
 end

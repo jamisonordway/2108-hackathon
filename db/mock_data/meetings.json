@@ -1,0 +1,30 @@
+{
+  "from": "019-09-07",
+  "to": "2019-09-07",
+  "page_count": 1,
+  "page_size": 1,
+  "total_records": 1,
+  "next_page_token": "",
+  "meetings": [
+    {
+      "uuid": "",
+      "id": 85191813036,
+      "topic": "Important Information",
+      "host": "Instructor 1",
+      "email": "instructor1@school.edu",
+      "user_type": "member",
+      "start_time": "string [date-time]",
+      "end_time": "string [date-time]",
+      "duration": "1 hour 2 min",
+      "participants": 25,
+      "has_pstn": "boolean",
+      "has_voip": "boolean",
+      "has_3rd_party_audio": "boolean",
+      "has_video": "boolean",
+      "has_screen_share": "boolean",
+      "has_recording": "boolean",
+      "has_sip": "boolean",
+      "has_archiving": "boolean"
+    }
+  ]
+}
