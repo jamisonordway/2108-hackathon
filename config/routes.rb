@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/', to: 'dashboards#index'
+  get '/', to: 'login#show'
 
+  resources :dashboards, only: [:index]
   resources :lesson_dates, only: [:index, :show]
 end
