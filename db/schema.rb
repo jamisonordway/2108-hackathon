@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_170744) do
+ActiveRecord::Schema.define(version: 2021_09_22_173726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,9 +53,12 @@ ActiveRecord::Schema.define(version: 2021_09_22_170744) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mod_id"
+    t.index ["mod_id"], name: "index_students_on_mod_id"
   end
 
   add_foreign_key "attendances", "lesson_dates"
   add_foreign_key "instructors", "mods"
   add_foreign_key "lesson_dates", "mods"
+  add_foreign_key "students", "mods"
 end
