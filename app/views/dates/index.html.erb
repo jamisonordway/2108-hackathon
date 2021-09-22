@@ -1,8 +1,0 @@
-<h1>All past attendance dates</h1>
-<% @dates.each do |date| %>
-  <p>
-    <%= link_to date.date_title, date_path(date) %>
-    <%= date.time_of_day %>
-    <%= date.module %>
-  </p>
-<% end %>
