@@ -10,26 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_160332) do
+ActiveRecord::Schema.define(version: 2021_09_22_161605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "attendances", force: :cascade do |t|
     t.string "email"
-    t.bigint "date_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["date_id"], name: "index_attendances_on_date_id"
-  end
-
-  create_table "dates", force: :cascade do |t|
-    t.integer "time_of_day"
-    t.string "status"
-    t.bigint "mod_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["mod_id"], name: "index_dates_on_mod_id"
+    t.bigint "lesson_date_id"
+    t.index ["lesson_date_id"], name: "index_attendances_on_lesson_date_id"
   end
 
   create_table "instructors", force: :cascade do |t|
@@ -38,6 +29,15 @@ ActiveRecord::Schema.define(version: 2021_09_22_160332) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mod_id"], name: "index_instructors_on_mod_id"
+  end
+
+  create_table "lesson_dates", force: :cascade do |t|
+    t.integer "time_of_day"
+    t.string "status"
+    t.bigint "mod_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mod_id"], name: "index_lesson_dates_on_mod_id"
   end
 
   create_table "mods", force: :cascade do |t|
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2021_09_22_160332) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "attendances", "dates"
-  add_foreign_key "dates", "mods"
+  add_foreign_key "attendances", "lesson_dates"
   add_foreign_key "instructors", "mods"
+  add_foreign_key "lesson_dates", "mods"
 end
