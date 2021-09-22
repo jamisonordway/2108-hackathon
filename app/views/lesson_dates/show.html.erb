@@ -1,2 +1,14 @@
 <h1>Attendance for <%= @lesson_date.date_title %></h1>
 <h3>Class time of day: <%= @lesson_date.time_of_day %></h3>
+
+<% @lesson_date.attendances.each do |att| %>
+  <section id="attendee-<%= att.id %>">
+    <p>Attendee email address: <%= att.email %></p>
+    <p><%= att.status %></p>
+    <% if att.guest? %>
+      <p>This attendee is a guest</p>
+    <% else %>
+      <p><%= link_to "Student profile", student_path(att.student) %></p>
+    <% end %>
+  </section>
+<% end %>

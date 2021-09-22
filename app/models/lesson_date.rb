@@ -1,5 +1,6 @@
 class LessonDate < ApplicationRecord
   belongs_to :mod
+  has_many :attendances
   enum time_of_day: ['AM', 'PM']
 
   def date_title
