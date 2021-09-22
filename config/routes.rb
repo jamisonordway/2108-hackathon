@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :meetings, only: [:show]
   resources :dashboards, only: [:index]
   resources :lesson_dates, only: [:index, :show]
+  resources :students, only: [:show]
 end
