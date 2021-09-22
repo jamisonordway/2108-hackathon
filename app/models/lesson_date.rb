@@ -6,4 +6,12 @@ class LessonDate < ApplicationRecord
   def date_title
     created_at.strftime("%b %d, %Y")
   end
+
+  def mod_name
+    mod.name
+  end
+
+  def mod_program
+    mod.program
+  end
 end
